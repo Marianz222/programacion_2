@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Saltar : MonoBehaviour
@@ -15,12 +13,18 @@ public class Saltar : MonoBehaviour
 
     //Referencia al Cuerpo Rígido localizado en el mismo Objeto de Juego
     private Rigidbody2D cuerpo;
+    private Animator animador;
+    private AudioSource sonidoColision;
+    private AudioSource sonidoSalto;
 
     //Al Activarse: Se ejecuta una vez, antes de la primer actualización
     private void Start()
     {
         //Se obtiene el componente de cuerpo rígido, para almacenarlo en su variable y usarse
         cuerpo = GetComponent<Rigidbody2D>();
+        animador = GetComponentInChildren<Animator>();
+        sonidoColision = GetComponentInParent<AudioSource>();
+        sonidoSalto = GetComponent<AudioSource>();
     }
 
     //Actualización: Se ejecuta constantemente, pero el intervalo puede variar
@@ -46,16 +50,26 @@ public class Saltar : MonoBehaviour
             cuerpo.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
             estaSaltando = true;
             puedeSaltar = false;
+            animador.Play("Main.Burst", 0, 0);
+            sonidoSalto.Play();
         }
 
     }
 
     //Al recibir Colision 2D: Se ejecuta cuando el cuerpo colisiona con otros en la escena
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D contacto)
     {
         //Resetea ambas variables de estado, colocandolas en "false"
         puedeSaltar = true;
         estaSaltando = false;
+
+        //Si el objeto con el que se colisionó está identificado como Metal
+        if (contacto.gameObject.tag == "Metal") {
+
+            //Reproducir sonido: Colisión en Metal (Desactivado temporalmente)
+            //sonidoColision.Play();
+
+        }
     }
 
 }

@@ -9,16 +9,34 @@ public class FuncionInterruptor : MonoBehaviour
     //Variables locales
     private bool fueActivado = false;
 
+    //Referencias a componentes del objeto de juego
+    private SpriteRenderer sprite;
+    private ParticleSystem particulas;
+    private AudioSource sonidoInterruptor;
+
+    //Iniciar: Se ejecuta una única vez al ejecutar el programa
+    void Start() {
+
+        //Asignamos los valores de las referencias a otros componentes del objeto
+        sprite = gameObject.GetComponent<SpriteRenderer>();
+        particulas = gameObject.GetComponent<ParticleSystem>();
+        sonidoInterruptor = gameObject.GetComponent<AudioSource>();
+
+    }
+
     //Al ingresar en Trigger 2D: Se ejecuta cuando algo entra en contacto con este objeto
     void OnTriggerEnter2D(Collider2D contacto) {
 
         //Si colisionó con un jugador y aún no fue activado
         if (contacto.gameObject.tag == "Player" && !fueActivado) {
 
-            //Registra el contacto por consola, cambia el color del interruptor a verde y cambia su estado a activo
+            //Registra el contacto por consola y cambia el color del interruptor a verde (Tanto en sprite como en partículas)
+            //Adicionalmente cambia su estado a activo dentro del sistema
             Debug.Log("Interruptor activado");
-            gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            sprite.color = Color.green;
+            particulas.startColor = Color.green;
             fueActivado = true;
+            sonidoInterruptor.Play();
 
         }
     }

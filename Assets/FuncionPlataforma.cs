@@ -32,7 +32,7 @@ public class FuncionPlataforma : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, posicionFinal.position, velocidadMovimiento * Time.deltaTime);
 
             //Si la distancia entre ambos cuerpos es muy baja...
-            if (Vector2.Distance(transform.position, posicionFinal.position) < 0.05f)
+            if (Vector2.Distance(transform.position, posicionFinal.position) < 0)
             {
                 //Se marca como movimiento efectuado para evitar futuros llamados
                 movimientoEfectuado = true;

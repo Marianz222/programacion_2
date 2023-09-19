@@ -6,6 +6,8 @@ using UnityEngine;
 public class FuncionInterruptor : MonoBehaviour
 {
 
+    [SerializeField] public Sprite spriteActivacion;
+
     //Variables locales
     private bool fueActivado = false;
 
@@ -13,6 +15,7 @@ public class FuncionInterruptor : MonoBehaviour
     private SpriteRenderer sprite;
     private ParticleSystem particulas;
     private AudioSource sonidoInterruptor;
+    private LineRenderer linea;
 
     //Iniciar: Se ejecuta una única vez al ejecutar el programa
     void Start() {
@@ -21,6 +24,7 @@ public class FuncionInterruptor : MonoBehaviour
         sprite = gameObject.GetComponent<SpriteRenderer>();
         particulas = gameObject.GetComponent<ParticleSystem>();
         sonidoInterruptor = gameObject.GetComponent<AudioSource>();
+        linea = gameObject.GetComponentInParent<LineRenderer>();
 
     }
 
@@ -33,9 +37,10 @@ public class FuncionInterruptor : MonoBehaviour
             //Registra el contacto por consola y cambia el color del interruptor a verde (Tanto en sprite como en partículas)
             //Adicionalmente cambia su estado a activo dentro del sistema
             Debug.Log("Interruptor activado");
-            sprite.color = Color.green;
+            sprite.sprite = spriteActivacion;
             particulas.startColor = Color.green;
             fueActivado = true;
+            linea.enabled = true;
             sonidoInterruptor.Play();
 
         }

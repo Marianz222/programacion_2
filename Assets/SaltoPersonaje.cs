@@ -16,6 +16,7 @@ public class Saltar : MonoBehaviour
     private Animator animador;
     private AudioSource sonidoColision;
     private AudioSource sonidoSalto;
+    private ParticleSystem sistemaParticulas;
 
     //Al Activarse: Se ejecuta una vez, antes de la primer actualización
     private void Start()
@@ -25,6 +26,7 @@ public class Saltar : MonoBehaviour
         animador = GetComponentInChildren<Animator>();
         sonidoColision = GetComponentInParent<AudioSource>();
         sonidoSalto = GetComponent<AudioSource>();
+        sistemaParticulas = GetComponentInChildren<ParticleSystem>();
     }
 
     //Actualización: Se ejecuta constantemente, pero el intervalo puede variar
@@ -52,6 +54,7 @@ public class Saltar : MonoBehaviour
             puedeSaltar = false;
             animador.Play("Main.Burst", 0, 0);
             sonidoSalto.Play();
+            sistemaParticulas.Emit(5);
         }
 
     }

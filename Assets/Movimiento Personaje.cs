@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class Mover : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Mover : MonoBehaviour
     {
         //Se obtiene el componente de cuerpo rígido, para almacenarlo en su variable y usarse
         cuerpo = GetComponent<Rigidbody2D>();
+
     }
 
     //Actualización: Se ejecuta constantemente, pero el intervalo puede variar
@@ -33,7 +35,13 @@ public class Mover : MonoBehaviour
     //Actualización Fija: Se ejecuta constantemente, pero su intervalo nunca varía. Se usa para el cálculo de colisiones
     private void FixedUpdate()
     {
-        //Impulsa al cuerpo con el vector creado previamente, multiplicandolo por la velocidad de movimiento
-        cuerpo.AddForce(direccion * velocidad);
+        //Verifica que el objecto esté activo antes de intentar moverlo
+        if (gameObject.activeSelf) {
+
+            //Impulsa al cuerpo con el vector creado previamente, multiplicandolo por la velocidad de movimiento
+            cuerpo.AddForce(direccion * velocidad);
+
+        }
+        
     }
 }

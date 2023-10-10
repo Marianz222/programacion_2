@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada9a1d1f38e16040bc4320502f5a6b2, type: 3}
+  m_Name: ConfiguracionJugador
+  m_EditorClassIdentifier: 
+  spriteEstadoCubo: {fileID: 0}
+  spriteEstadoSierra: {fileID: 0}
+  spriteEstadoAracnido: {fileID: 0}
+  sonidoCuboPropulsor: {fileID: 0}
+  sonidoSierraCarga: {fileID: 0}
+  sonidoAracnidoCambioSuperficie: {fileID: 0}
+  teclaEstadoCubo: 122
+  teclaEstadoSierra: 120
+  teclaEstadoAracnido: 99
+  teclaHabilidadPrincipal: 32
+  teclaHabilidadSecundaria: 306
+  puntosVida: 3
+  velocidadMovimiento: 0
+  fuerzaSalto: 0
+  permitirSaltoContinuo: 0
+  permitirSaltoParedes: 1
+  tieneRastro: 0
+  tieneParticulas: 1

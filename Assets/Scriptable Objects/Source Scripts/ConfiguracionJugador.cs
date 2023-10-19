@@ -60,8 +60,12 @@ public class ConfiguracionJugador : ScriptableObject
 
     //Variables primitivas generales
     [SerializeField]
-    [Tooltip("La cantidad de vida que tiene el jugador")]
-    private int puntosVida;
+    [Tooltip("La vida máxima que puede llegar a tener el jugador")]
+    private int vidaMaxima;
+
+    [SerializeField]
+    [Tooltip("La energia máxima que puede llegar a tener el jugador")]
+    private int energiaMaxima;
 
     [SerializeField]
     [Tooltip("La velocidad de movimiento horizontal del jugador")]
@@ -97,5 +101,13 @@ public class ConfiguracionJugador : ScriptableObject
     public AudioClip SonidoCuboPropulsor { get => sonidoCuboPropulsor; set => sonidoCuboPropulsor = value; }
     public AudioClip SonidoSierraCarga { get => sonidoSierraCarga; set => sonidoSierraCarga = value; }
     public AudioClip SonidoAracnidoCambioSuperficie { get => sonidoAracnidoCambioSuperficie; set => sonidoAracnidoCambioSuperficie = value; }
+
+    public KeyCode TeclaEstadoCubo { get => teclaEstadoCubo; set => teclaEstadoCubo = value; }
+    public KeyCode TeclaEstadoSierra { get => teclaEstadoSierra; set => teclaEstadoSierra = value; }
+    public KeyCode TeclaEstadoAracnido { get => teclaEstadoAracnido; set => teclaEstadoAracnido = value; }
+    public KeyCode TeclaHabilidadPrincipal { get => teclaHabilidadPrincipal; set => teclaHabilidadPrincipal = value; }
+    public KeyCode TeclaHabilidadSecundaria { get => teclaHabilidadSecundaria; set => teclaHabilidadSecundaria = value; }
+    public int VidaMaxima { get => vidaMaxima; set => vidaMaxima = value; }
+    public int EnergiaMaxima { get => energiaMaxima; set => energiaMaxima = value; }
 
 }

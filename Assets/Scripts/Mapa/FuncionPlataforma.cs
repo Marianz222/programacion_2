@@ -28,7 +28,7 @@ public class FuncionPlataforma : MonoBehaviour
         if (scriptInterruptor.estadoActivacion() && !movimientoEfectuado)
         {
             //Mueve la plataforma en dirección al punto de control (visualizable en el editor)
-            transform.position = Vector2.MoveTowards(transform.position, posicionFinal.position, velocidadMovimiento * Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, posicionFinal.position, velocidadMovimiento * Time.deltaTime);
 
             //Si la distancia entre ambos cuerpos es muy baja...
             if (Vector2.Distance(transform.position, posicionFinal.position) < 0)

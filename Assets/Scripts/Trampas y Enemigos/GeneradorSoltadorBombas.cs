@@ -11,6 +11,7 @@ public class GeneradorSoltadorBombas : MonoBehaviour
     [SerializeField] private GameObject[] listaPrefabs;
     [SerializeField][Range(2, 5)] private int intervaloTiempo;
     [SerializeField][Range(1, 8)] private int tiempoInicial;
+    [SerializeField] GameObject directorioGeneración;
     [SerializeField] private bool registrosDebug = false;
 
     //Variables para la generación de numero aleatorio

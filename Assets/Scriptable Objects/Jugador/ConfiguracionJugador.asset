@@ -23,7 +23,8 @@ MonoBehaviour:
   teclaEstadoAracnido: 99
   teclaHabilidadPrincipal: 32
   teclaHabilidadSecundaria: 306
-  puntosVida: 3
+  vidaMaxima: 100
+  energiaMaxima: 3
   velocidadMovimiento: 0
   fuerzaSalto: 0
   permitirSaltoContinuo: 0

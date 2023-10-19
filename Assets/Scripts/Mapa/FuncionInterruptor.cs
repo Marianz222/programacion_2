@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 
 public class FuncionInterruptor : MonoBehaviour
 {
 
     //Campos serializados para componentes
     [Header("Referencias a Componentes")]
-    [SerializeField] public Sprite spriteActivacion;
+    [SerializeField] private Sprite spriteActivacion;
 
     //Variables locales
     private bool fueActivado = false;
@@ -39,10 +40,15 @@ public class FuncionInterruptor : MonoBehaviour
             //Adicionalmente cambia su estado a activo dentro del sistema
             Debug.Log("Interruptor activado");
             sprite.sprite = spriteActivacion;
-            particulas.startColor = Color.green;
+
+            var color = particulas.main.startColor;
+
+            color = Color.green;
             fueActivado = true;
             linea.enabled = true;
             sonidoInterruptor.Play();
+
+            StartCoroutine(nameof(apagarLinea));
 
         }
     }
@@ -52,5 +58,13 @@ public class FuncionInterruptor : MonoBehaviour
 
         return fueActivado;
         
+    }
+
+    IEnumerator apagarLinea() {
+
+        yield return new WaitForSeconds(0.4f);
+
+        linea.enabled = false;
+
     }
 }

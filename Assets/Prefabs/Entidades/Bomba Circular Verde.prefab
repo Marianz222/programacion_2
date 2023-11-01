@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 207723755730104860}
   - component: {fileID: 5456289499345138183}
   - component: {fileID: 1556220611785387483}
-  - component: {fileID: 4305109802924009204}
   - component: {fileID: 4174412607692847605}
   - component: {fileID: 2204014726003724119}
+  - component: {fileID: 4305109802924009204}
   - component: {fileID: 971606379961481361}
   - component: {fileID: 5094917729211659580}
   m_Layer: 0
@@ -141,24 +141,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.32
---- !u!114 &4305109802924009204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8149141448787958425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 344eec98669e8e440adcffba1026b3a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &4174412607692847605
 Rigidbody2D:
   serializedVersion: 4
@@ -4918,6 +4906,19 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &4305109802924009204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8149141448787958425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344eec98669e8e440adcffba1026b3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  datos: {fileID: 11400000, guid: 5cbb7e5a427d1a24aa03e2a1e0fb8755, type: 2}
 --- !u!199 &971606379961481361
 ParticleSystemRenderer:
   serializedVersion: 6

@@ -23,6 +23,9 @@ public class LineRenderingController : MonoBehaviour
         linea.positionCount = 2;
         linea.SetPosition(0, posicionInicial.position);
         linea.SetPosition(1, posicionFinal.position);
+
+        Debug.DrawLine(posicionInicial.position, posicionFinal.position, Color.cyan, 25.0f);
+        
     }
 
     //Actualización: Se llama en cada frame

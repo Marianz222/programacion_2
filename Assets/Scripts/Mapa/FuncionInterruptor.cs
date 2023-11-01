@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal.Internal;
 
 public class FuncionInterruptor : MonoBehaviour
 {
@@ -41,9 +40,9 @@ public class FuncionInterruptor : MonoBehaviour
             Debug.Log("Interruptor activado");
             sprite.sprite = spriteActivacion;
 
-            var color = particulas.main.startColor;
-
-            color = Color.green;
+            var moduloPrincipal = particulas.main;
+            moduloPrincipal.startColor = Color.green;
+            
             fueActivado = true;
             linea.enabled = true;
             sonidoInterruptor.Play();

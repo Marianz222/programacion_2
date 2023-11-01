@@ -124,7 +124,7 @@ public class GestorHUD : MonoBehaviour
             objetoNuevo.gameObject.transform.localScale = new Vector2(1, 1);
 
             //Registra por consola que el icono se cargó correctamente
-            Debug.Log("Cargado el Icono [" + i + "] para el Borde de la Barra Energética");
+            //Debug.Log("Cargado el Icono [" + i + "] para el Borde de la Barra Energética");
 
         }
 
@@ -142,7 +142,7 @@ public class GestorHUD : MonoBehaviour
             objetoNuevo.gameObject.transform.localScale = new Vector2(1, 1);
 
             //Registra por consola que el icono se cargó correctamente
-            Debug.Log("Cargado el Icono [" + i + "] para el Interior de la Barra Energética");
+            //Debug.Log("Cargado el Icono [" + i + "] para el Interior de la Barra Energética");
 
         }
 
@@ -160,7 +160,7 @@ public class GestorHUD : MonoBehaviour
             objetoNuevo.gameObject.transform.localScale = new Vector2(1, 1);
 
             //Registra por consola que el icono se cargó correctamente
-            Debug.Log("Cargado el Icono [" + i + "] para el Interior de la Barra Energética");
+            //Debug.Log("Cargado el Icono [" + i + "] para el Interior de la Barra Energética");
 
         }
 

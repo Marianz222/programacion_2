@@ -8,6 +8,7 @@ TagManager:
   - Breakable
   - Damage Source
   - Recolectable
+  - Background
   layers:
   - Default
   - TransparentFX

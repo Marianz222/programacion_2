@@ -12,7 +12,6 @@ public class GestorInventario : MonoBehaviour
 
         //Inicializa el diccionario y registra la acción por consola
         inventario = new Dictionary<string, GameObject>();
-        Debug.Log("[INFO/DEBUG]: Inventario creado");
         
     }
 

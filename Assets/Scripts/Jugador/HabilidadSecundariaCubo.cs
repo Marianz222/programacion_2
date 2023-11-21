@@ -6,18 +6,10 @@ using UnityEngine.Events;
 public class HabilidadSecundariaCubo : MonoBehaviour
 {
 
-    //Campos de referencia a objetos de configuración (Scriptable Objects)
-    [Header("Referencias a Configuraciones")]
-    [SerializeField] private ConfiguracionJugador datosJugador;
-
     //Configuración de variables
     [Header("Variables Configurables")]
     [SerializeField] private int fuerzaImpulso = 3;
-    [SerializeField] private int tiempoEnfriamiento = 3;
-
-    //Referencias a objetos y componentes externos
-    [Header("Referencias a Objetos Externos")]
-    [SerializeField] private GameObject objetoInterfaz;
+    [SerializeField] private int tiempoEnfriamiento = 1;
 
     //Enlaces a eventos
     [Header("Eventos Disponibles")]
@@ -30,20 +22,19 @@ public class HabilidadSecundariaCubo : MonoBehaviour
     private bool usandoHabilidad = false;
     private bool enfriamientoActivo = false;
     private bool estaMoviendose;
-    private GestorHUD scriptInterfaz;
     private Vector2 direccionMovimiento;
     private int multiplicadorVelocidad = 150;
     private TrailRenderer rastro;
+    private ControladorJugador datosJugador;
 
     //Iniciar: Se llama antes de la primera actualización de frame
     void Start() {
-
-        //Obtiene los componentes de cuerpo rígido, script de interfaz
-        //tecla de activación (usando la configuración del jugador) y el rastro
+        
         cuerpo = GetComponent<Rigidbody2D>();
-        scriptInterfaz = objetoInterfaz.GetComponent<GestorHUD>();
-        teclaActivacion = datosJugador.TeclaHabilidadSecundaria;
+        datosJugador = GetComponent<ControladorJugador>();
         rastro = GetComponent<TrailRenderer>();
+
+        teclaActivacion = datosJugador.retornarTeclaHabilidadSecundaria();
 
     }
 
@@ -54,24 +45,15 @@ public class HabilidadSecundariaCubo : MonoBehaviour
         //Almacena el valor de entrada horizontal (1 o -1 dependiendo al dirección)
         direccionMovimiento = new Vector2(Input.GetAxis("Horizontal"), 0);
 
-        //Detecta si el jugador se está moviendo a su máxima capacidad o no, de ser así permitirá usar la habilidad
-        estaMoviendose = (direccionMovimiento.x == 1 || direccionMovimiento.x == -1);
+        //Detecta si el jugador se está moviendo para permitir usar la habilidad
+        estaMoviendose = (direccionMovimiento.x >= 0.2f || direccionMovimiento.x <= -0.2f);
 
         //Si la tecla de activación está siendo presionada, la energía es mayor a 0, el jugador se está moviendo, no hay enfriamiento
         //activo y la habilidad no se está usando actualmente...
-        if (Input.GetKeyDown(teclaActivacion) && (scriptInterfaz.retornarEnergia() > 0) && estaMoviendose  && !enfriamientoActivo && !usandoHabilidad) {
+        if (Input.GetKeyDown(teclaActivacion) && (datosJugador.retornarEnergia() > 0) && estaMoviendose  && !enfriamientoActivo && !usandoHabilidad) {
 
             //Llama al inicio de la corrutina de activar habilidad
             StartCoroutine(nameof(activarHabilidad));
-
-        }
-
-        //DEBUG: Si el jugador pulsa la tecla Q...
-        if (Input.GetKeyDown(KeyCode.Q)) {
-
-            //Añade energía al jugador, usado para Debugging. Se registra por consola
-            scriptInterfaz.modificarEnergiaActual("add");
-            Debug.Log("[INFO/DEBUG]: Se añadió un punto de energía!");
 
         }
 
@@ -92,9 +74,6 @@ public class HabilidadSecundariaCubo : MonoBehaviour
 
         //Se añade la fuerza de impulso, depende de la dirección, de la fuerza de impulso y además del multiplicador de velocidad
         cuerpo.AddForce(direccionMovimiento * fuerzaImpulso * multiplicadorVelocidad, 0);
-        
-        //Registra por consola que la habilidad se ejecutó correctamente
-        Debug.Log("[INFO/DEBUG]: Ejecutada la habilidad: Impulso Horizontal");
 
         //Se invoca el evento
         alUsarHabilidadSecundaria.Invoke();

@@ -205,7 +205,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4457612065343697708}
   serializedVersion: 8
-  lengthInSec: 0.2
+  lengthInSec: 0.4
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -216,7 +216,7 @@ ParticleSystem:
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
-  autoRandomSeed: 1
+  autoRandomSeed: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -280,7 +280,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -333,7 +333,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -834,7 +834,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: -0.6, y: 0.21, z: 0}
+    m_Position: {x: -0.76, y: 0.21, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.2, y: 0.2, z: 1}
     placementMode: 0
@@ -4936,7 +4936,6 @@ MonoBehaviour:
   prefabProyectil: {fileID: 143019612147373680, guid: 7a25fe81b093e8f46b91f2c32d70b7d3, type: 3}
   origenProyectil: {fileID: 4184123217590198304}
   datosTorreta: {fileID: 11400000, guid: e7352c88503883c42bc0589a24fbabce, type: 2}
-  direccion: left
 --- !u!199 &7922682844163873172
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4958,7 +4957,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 7ff32eb728519774482fa1b9fe4ef152, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4976,9 +4975,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 406405333
+  m_SortingLayer: 1
+  m_SortingOrder: 3
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0

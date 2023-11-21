@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 //Comportamiento para Proyectiles de tipo "Energy Bolt". Hereda de Comportamiento Proyectil

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class ComportamientoTorretaSingleFire : MonoBehaviour
@@ -16,8 +15,13 @@ public class ComportamientoTorretaSingleFire : MonoBehaviour
     [Header("Archivos de Configuración")]
     [SerializeField] ConfiguracionTorreta datosTorreta;
 
+    //Referencias privadas a componentes
+    private ParticleSystem sistemaParticulas;
+
     //Variables locales y privadas
     private List<GameObject> listaProyectiles;
+
+
     private int proyectilesMaximos;
     private int tiempoInicial;
     private int tiempoIntervalo;
@@ -36,8 +40,12 @@ public class ComportamientoTorretaSingleFire : MonoBehaviour
     //Iniciar: Se ejecuta antes de la primera actualización de frame
     void Start() {
 
+        StartCoroutine(suspenderFuncionamiento(1));
+
         //Se llama al ciclo para disparar los proyectiles, contiene una llamada a Invoke Repeating
         cicloDisparoProyectiles();
+
+        sistemaParticulas = GetComponent<ParticleSystem>();
 
     }
 
@@ -68,8 +76,9 @@ public class ComportamientoTorretaSingleFire : MonoBehaviour
 
             //Fija el padre del proyectil como el contenedor de proyectiles y desactiva el proyectil
             nuevoProyectil.gameObject.transform.SetParent(contenedorProyectiles.gameObject.transform);
-            nuevoProyectil.SetActive(false);
             rastroProyectil.enabled = false;
+
+            StartCoroutine(apagarProyectil(nuevoProyectil));
 
             //Añade el proyectil creado a la lista
             listaProyectiles.Add(nuevoProyectil);
@@ -93,6 +102,8 @@ public class ComportamientoTorretaSingleFire : MonoBehaviour
 
         //Almacena referencia al proyectil obtenido de la piscina
         GameObject nuevoProyectil = obtenerProyectilDisponible();
+
+        sistemaParticulas.Emit(1);
         
         //Si se encontró un proyectil disponible...
         if (nuevoProyectil != null) {
@@ -133,6 +144,20 @@ public class ComportamientoTorretaSingleFire : MonoBehaviour
 
         //Se retorna nulo, ya que no se encontró un proyectil disponible para reutilizar
         return null;
+
+    }
+
+    IEnumerator apagarProyectil(GameObject proyectil) {
+
+        yield return new WaitForSeconds(1);
+
+        proyectil.gameObject.SetActive(true);
+
+    }
+
+    IEnumerator suspenderFuncionamiento(int tiempo) {
+
+        yield return new WaitForSeconds(tiempo);
 
     }
 

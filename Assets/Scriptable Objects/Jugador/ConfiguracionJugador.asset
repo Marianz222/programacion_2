@@ -12,22 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada9a1d1f38e16040bc4320502f5a6b2, type: 3}
   m_Name: ConfiguracionJugador
   m_EditorClassIdentifier: 
-  spriteEstadoCubo: {fileID: 0}
-  spriteEstadoSierra: {fileID: 0}
-  spriteEstadoAracnido: {fileID: 0}
+  spriteEstadoCubo: {fileID: 21300000, guid: b69840728dddd984ba34ee11bed8fc91, type: 3}
+  spriteEstadoSierra: {fileID: 21300000, guid: 9c75a0c373724324b99e91bd21f69e7d, type: 3}
+  spriteEstadoAracnido: {fileID: 21300000, guid: b69840728dddd984ba34ee11bed8fc91, type: 3}
   sonidoCuboPropulsor: {fileID: 0}
   sonidoSierraCarga: {fileID: 0}
-  sonidoAracnidoCambioSuperficie: {fileID: 0}
   teclaEstadoCubo: 122
   teclaEstadoSierra: 120
   teclaEstadoAracnido: 99
   teclaHabilidadPrincipal: 32
   teclaHabilidadSecundaria: 306
   vidaMaxima: 100
-  energiaMaxima: 3
-  velocidadMovimiento: 0
-  fuerzaSalto: 0
+  energiaMaxima: 5
+  velocidadMovimiento: 7
+  alturaSalto: 10
   permitirSaltoContinuo: 0
-  permitirSaltoParedes: 1
-  tieneRastro: 0
+  permitirSaltoParedes: 0
   tieneParticulas: 1

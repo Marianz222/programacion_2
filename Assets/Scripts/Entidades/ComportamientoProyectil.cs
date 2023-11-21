@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 //Clase plantilla para crear el comportamiento de proyectiles. Hereda de MonoBehaviour
 public abstract class ComportamientoProyectil : MonoBehaviour
@@ -12,6 +13,8 @@ public abstract class ComportamientoProyectil : MonoBehaviour
     protected Collider2D colisionador;
     protected ParticleSystem sistemaParticulas;
     protected Rigidbody2D cuerpo;
+
+    public UnityEvent alColisionarConProyectil;
 
     //Variables simples
     protected int daño;
@@ -69,8 +72,26 @@ public abstract class ComportamientoProyectil : MonoBehaviour
 
         }
 
+        if (contacto.gameObject.CompareTag("Player"))
+        {
+
+            alColisionarConProyectil.Invoke();
+
+        }
+
         //Llamada a la destrucción del proyectil
         destruirProyectil();
+
+    }
+
+    void OnCollisionEnter2D(Collision2D contacto) {
+
+        if (contacto.gameObject.CompareTag("Player"))
+        {
+
+            alColisionarConProyectil.Invoke();
+
+        }
 
     }
 

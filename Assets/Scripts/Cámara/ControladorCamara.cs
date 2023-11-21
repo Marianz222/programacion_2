@@ -31,14 +31,14 @@ public class ControladorCamara : MonoBehaviour
     void Update()
     {
         //Si la tecla de incrementar el zoom fue presionada...
-        if (Input.GetKeyDown(teclaIncrementoZoom)) {
+        if (Input.GetKeyDown(teclaIncrementoZoom) && zoomActual >= maxZoom) {
 
             //Decrementa el valor del tamaño ortográfico (acercando la cámara), además registra dicho cambio por consola
             zoomActual = zoomActual - 100 * Time.deltaTime;
             Debug.Log("[INFO/DEBUG]: Zoom incrementado en " + gameObject.name);
 
         //Sino si la tecla de decrementar zoom fue presionada...
-        } else if (Input.GetKeyDown(teclaDecrementoZoom)) {
+        } else if (Input.GetKeyDown(teclaDecrementoZoom) && zoomActual <= minZoom) {
 
             //Incrementa el valor del tamaño ortográfico (alejando la cámara), además registra dicho cambio por consola
             zoomActual = zoomActual + 100 * Time.deltaTime;

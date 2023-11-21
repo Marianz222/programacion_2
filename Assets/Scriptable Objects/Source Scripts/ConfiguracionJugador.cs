@@ -31,10 +31,6 @@ public class ConfiguracionJugador : ScriptableObject
     [Tooltip("El sonido que se reproducirá al cargar la Sierra")]
     private AudioClip sonidoSierraCarga;
 
-    [SerializeField]
-    [Tooltip("El sonido que se reproducirá al intercambiar superficies")]
-    private AudioClip sonidoAracnidoCambioSuperficie;
-
 
     //Variables de tipo "Tecla"
     [SerializeField]
@@ -73,7 +69,7 @@ public class ConfiguracionJugador : ScriptableObject
 
     [SerializeField]
     [Tooltip("La altura a la que salta el jugador (Estado Cubo)")]
-    private float fuerzaSalto;
+    private float alturaSalto;
 
     [SerializeField]
     [Tooltip("Si es posible permanecer saltando al mantener presionada la tecla de salto")]
@@ -84,30 +80,30 @@ public class ConfiguracionJugador : ScriptableObject
     private bool permitirSaltoParedes;
 
     [SerializeField]
-    [Tooltip("Controla si el jugador muestra o no un rastro tras moverse")]    
-    private bool tieneRastro;
-
-    [SerializeField]
     [Tooltip("Controla si se muestran o no las partículas asociadas al Jugador")]
     private bool tieneParticulas;
 
 
     //Métodos de recuperación y asignación de variables para "Sprite"
-    public Sprite SpriteEstadoCubo { get => spriteEstadoCubo; set => spriteEstadoCubo = value; }
-    public Sprite SpriteEstadoSierra { get => spriteEstadoSierra; set => spriteEstadoSierra = value; }
-    public Sprite SpriteEstadoAracnido { get => spriteEstadoAracnido; set => spriteEstadoAracnido = value; }
+    public Sprite SpriteCubo { get => spriteEstadoCubo; set => spriteEstadoCubo = value; }
+    public Sprite SpriteSierra { get => spriteEstadoSierra; set => spriteEstadoSierra = value; }
+    public Sprite SpriteAracnido { get => spriteEstadoAracnido; set => spriteEstadoAracnido = value; }
 
     //Métodos de recuperación y asignación de variables para "Clip de Audio"
     public AudioClip SonidoCuboPropulsor { get => sonidoCuboPropulsor; set => sonidoCuboPropulsor = value; }
     public AudioClip SonidoSierraCarga { get => sonidoSierraCarga; set => sonidoSierraCarga = value; }
-    public AudioClip SonidoAracnidoCambioSuperficie { get => sonidoAracnidoCambioSuperficie; set => sonidoAracnidoCambioSuperficie = value; }
 
+    //Métodos de recuperación y asignación de variables para "Código de Tecla"
     public KeyCode TeclaEstadoCubo { get => teclaEstadoCubo; set => teclaEstadoCubo = value; }
     public KeyCode TeclaEstadoSierra { get => teclaEstadoSierra; set => teclaEstadoSierra = value; }
     public KeyCode TeclaEstadoAracnido { get => teclaEstadoAracnido; set => teclaEstadoAracnido = value; }
     public KeyCode TeclaHabilidadPrincipal { get => teclaHabilidadPrincipal; set => teclaHabilidadPrincipal = value; }
     public KeyCode TeclaHabilidadSecundaria { get => teclaHabilidadSecundaria; set => teclaHabilidadSecundaria = value; }
+
+    //Métodos de recuperación y asignación de variables básicas
     public int VidaMaxima { get => vidaMaxima; set => vidaMaxima = value; }
     public int EnergiaMaxima { get => energiaMaxima; set => energiaMaxima = value; }
+    public float VelocidadMovimiento { get => velocidadMovimiento; set => velocidadMovimiento = value; }
+    public float AlturaSalto { get => alturaSalto; set => alturaSalto = value; }
 
 }
